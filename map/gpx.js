@@ -60,7 +60,7 @@ var map = new Map({
   layers: [raster, vector],
   target: document.getElementById('map'),
   view: new View({
-    center: [2116041.528716288, 5628379.045749711],
+    center: [-7916041.528716288, 5228379.045749711],
     zoom: 12
   })
 });
