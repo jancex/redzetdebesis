@@ -17,7 +17,8 @@
 <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" />
 <!-- FONT AWESOME ICONS STYLES -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
-
+<!-- MAP STYLES -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" />
 <!-- FANCYBOX POPUP STYLES -->
 <link href="assets/js/source/jquery.fancybox.css" rel="stylesheet" />
 <!-- STYLES FOR VIEWPORT ANIMATION -->
@@ -255,6 +256,11 @@
 		<div class="row animate-in" data-anim-type="fade-in-up">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div id="rivaskarte"></div>
+				    <section id="karte" class="gpx" data-gpx-source="gpx/riva.gpx" data-map-target="demo-map">
+      <article>
+        <div class="map" id="demo-map"></div>
+      </article>
+    </section>
 			</div>
 		</div>
 	</div>
@@ -349,6 +355,42 @@
 <script src="assets/js/animations.min.js"></script>
 <!-- CUSTOM SCRIPTS -->
 <script src="assets/js/custom.js"></script>
+<!-- MAP SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
+<script src="https://rawgithub.com/mpetazzoni/leaflet-gpx/master/gpx.js"></script>
+    <script type="application/javascript">
+      function display_gpx(elt) {
+        if (!elt) return;
+
+        var url = elt.getAttribute('data-gpx-source');
+        var mapid = elt.getAttribute('data-map-target');
+        if (!url || !mapid) return;
+
+        function _t(t) { return elt.getElementsByTagName(t)[0]; }
+        function _c(c) { return elt.getElementsByClassName(c)[0]; }
+
+        var map = L.map(mapid);
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: 'Map data &copy; <a href="http://www.osm.org">OpenStreetMap</a> with Kurzemes plānošanas reģions'
+        }).addTo(map);
+
+    //    var control = L.control.layers(null, null).addTo(map);
+
+        new L.GPX(url, {
+          async: true,
+          marker_options: {
+			wptIconUrls: {'': 'http://github.com/mpetazzoni/leaflet-gpx/raw/master/pin-icon-wpt.png'},
+          },
+        }).on('loaded', function(e) {
+          var gpx = e.target;
+          map.fitBounds(gpx.getBounds());
+          control.addOverlay(gpx, gpx.get_name());
+
+        }).addTo(map);
+      }
+
+      display_gpx(document.getElementById('karte'));
+    </script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

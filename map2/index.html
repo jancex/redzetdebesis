@@ -15,7 +15,7 @@
     </style>
   </head>
   <body>
-    <section id="demo" class="gpx" data-gpx-source="riva.gpx" data-map-target="demo-map">
+    <section id="karte" class="gpx" data-gpx-source="riva.gpx" data-map-target="demo-map">
       <article>
         <div class="map" id="demo-map"></div>
       </article>
@@ -36,7 +36,7 @@
 
         var map = L.map(mapid);
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: 'Map data &copy; <a href="http://www.osm.org">OpenStreetMap</a> upes oga'
+          attribution: 'Map data &copy; <a href="http://www.osm.org">OpenStreetMap</a> with Kurzemes plānošanas reģions'
         }).addTo(map);
 
     //    var control = L.control.layers(null, null).addTo(map);
@@ -54,7 +54,7 @@
         }).addTo(map);
       }
 
-      display_gpx(document.getElementById('demo'));
+      display_gpx(document.getElementById('karte'));
     </script>
   </body>
 </html>
