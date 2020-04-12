@@ -38,9 +38,6 @@
       .gpx { border: 2px #aaa solid; border-radius: 5px;
         box-shadow: 0 0 3px 3px #ccc;
         width: 800px; margin: 1em auto; }
-      .gpx header { padding: 0.5em; }
-      .gpx h3 { margin: 0; padding: 0; font-weight: bold; }
-      .gpx .start { font-size: smaller; color: #444; }
       .gpx .map { border: 1px #888 solid; border-left: none; border-right: none;
         width: 800px; height: 500px; margin: 0; }
       .gpx footer { background: #f0f0f0; padding: 0.5em; }
@@ -51,10 +48,6 @@
   </head>
   <body>
     <section id="demo" class="gpx" data-gpx-source="river_41.gpx" data-map-target="demo-map">
-      <header>
-        <h3>Loading...</h3>
-        <span class="start"></span>
-      </header>
 
       <article>
         <div class="map" id="demo-map"></div>
@@ -109,9 +102,6 @@
            * Note: the code below relies on the fact that the demo GPX file is
            * an actual GPS track with timing and heartrate information.
            */
-          _t('h3').textContent = gpx.get_name();
-          _c('start').textContent = gpx.get_start_time().toDateString() + ', '
-            + gpx.get_start_time().toLocaleTimeString();
           _c('distance').textContent = gpx.get_distance_imp().toFixed(2);
           _c('duration').textContent = gpx.get_duration_string(gpx.get_moving_time());
           _c('pace').textContent     = gpx.get_duration_string(gpx.get_moving_pace_imp(), true);
