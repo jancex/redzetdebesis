@@ -4,7 +4,7 @@
     <link href="http://www.garmin.com">
       <text>Garmin International</text>
     </link>
-    <time>2020-04-12T14:33:52Z</time>
+    <time>2020-04-12T15:54:41Z</time>
     <bounds maxlat="56.980010038241744" maxlon="21.404226757586002" minlat="56.908484911546111" minlon="21.344400001689792" />
   </metadata>
 
@@ -69,6 +69,8 @@
   <wpt lat="56.908484911546111" lon="21.404226757586002">
     <time>2020-04-12T14:32:15Z</time>
     <name>Rīvas ciema tilts</name>
+    <cmt>&lt;a href="https://www.waze.com/ul?ll=56.90843215%2C21.40415668&amp;navigate=yes&amp;zoom=17"&gt;Driving directions via Waze&lt;/a&gt;</cmt>
+    <desc>&lt;a href="https://www.waze.com/ul?ll=56.90843215%2C21.40415668&amp;navigate=yes&amp;zoom=17"&gt;Driving directions via Waze&lt;/a&gt;</desc>
     <sym>Flag, Blue</sym>
     <type>user</type>
     <extensions>
